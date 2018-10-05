@@ -8,3 +8,5 @@
 (deftest move-right-does-not-move-if-on-edge
   (is (= (move-right {:x 4} 5) {:x 4} )))
 
+(deftest count-good-returns-sum-of-character
+  (is (= (count-good [\a \b \a \c] \a) 2)))
