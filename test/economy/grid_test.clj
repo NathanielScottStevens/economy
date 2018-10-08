@@ -33,3 +33,7 @@
 (deftest get-value-returns-nil-when-y-is-out-of-bounds
   (is (= (get-grid-value default-grid 0 100)
          nil)))
+
+(deftest convert-grid-to-string-does-so
+  (is (= (convert-grid-to-string default-grid)
+         "@ .\n. .\n")))

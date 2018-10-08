@@ -1,4 +1,5 @@
-(ns economy.grid)
+(ns economy.grid
+  (:require [clojure.string :only (join)]))
 
 (defn create-grid
   [width height val]
@@ -15,3 +16,8 @@
   (try
     ((grid y) x)
     (catch Exception e nil)))
+
+(defn convert-grid-to-string
+  [grid]
+  (reduce #(str %1 (join " " %2) "\n") "" grid))
+
