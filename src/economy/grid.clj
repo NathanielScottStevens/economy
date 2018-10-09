@@ -19,7 +19,14 @@
 
 (defn convert-grid-to-string
   [grid]
-  (letfn [(append [a b]
-    (str a (clojure.string/join " " b) "\n"))])
-  (reduce append "" grid))
+  (letfn [(append [a b] (str a (clojure.string/join " " b) "\n"))]
+    (reduce append "" grid)))
+
+(defn position-in-bounds? [position grid]
+  (let [bounds [(-> (grid 0) count dec)
+                (-> grid count dec)]]
+    (and (>= (position 0) 0)
+         (<= (position 0) (bounds 0))
+         (>= (position 1) 0)  
+         (<= (position 1) (bounds 1)))))
 

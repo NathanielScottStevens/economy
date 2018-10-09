@@ -37,3 +37,16 @@
 (deftest convert-grid-to-string-does-so
   (is (= (convert-grid-to-string default-grid)
          "@ .\n. .\n")))
+
+(deftest position-in-bounds-returns-true-when-in-lower-bounds
+  (is (= (position-in-bounds? [0, 0] default-grid) true)))
+
+(deftest position-in-bounds-returns-true-when-in-upper-bounds
+  (is (= (position-in-bounds? [1, 1] default-grid) true)))
+
+(deftest position-in-bounds-returns-false-when-below-lower-bounds
+  (is (= (position-in-bounds? [-1, -1] default-grid) false)))
+
+(deftest position-in-bounds-returns-false-when-above-upper-bounds
+  (is (= (position-in-bounds? [5, 5] default-grid) false)))
+
